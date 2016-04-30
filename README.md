@@ -29,10 +29,9 @@ logstash_1       |          "@version" => "1",
 logstash_1       |        "@timestamp" => "2016-04-30T08:23:24.934Z",
 logstash_1       |              "type" => "docker",
 logstash_1       |              "host" => "172.17.0.5",
-logstash_1       |              "tags" => [],
 logstash_1       |           "service" => "ab",
 logstash_1       |     "containerName" => "romantic_jennings",
-logstash_1       |               "message" => "This is my log message\n"
+logstash_1       |           "message" => "This is my log message"
 logstash_1       | }
 ```
 
