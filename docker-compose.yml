@@ -7,7 +7,7 @@ logspout:
     - '/var/run/docker.sock:/tmp/docker.sock'
 
 logstash:
-  image: logstash-json
+  image: ludekvesely/logstash-json
   environment:
     - LOGSPOUT=ignore
     - DROP_NON_JSON=false
