@@ -1,5 +1,7 @@
 # Docker-compose.yml file with logspout and ELK stack
 
+> Check out my my article: http://www.ludekvesely.cz/docker-a-logovani/
+
 This docker-compose.yml file contains 4 services:
 
 - [Logspout](https://hub.docker.com/r/gliderlabs/logspout/): Log router for Docker cantainers which attaches to all containers on a host and routes their logs to logstash
