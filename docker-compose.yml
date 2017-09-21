@@ -1,31 +1,35 @@
-logspout:
-  image: gliderlabs/logspout:v3
-  command: 'syslog://logstash:5000'
-  links:
-    - logstash
-  volumes:
-    - '/var/run/docker.sock:/tmp/docker.sock'
+version: '3.3'
 
-logstash:
-  image: ludekvesely/logstash-json
-  environment:
-    - LOGSPOUT=ignore
-    - DROP_NON_JSON=false
-    - STDOUT=true
-  links:
-    - elasticsearch
+services:
 
-kibana:
-  image: kibana
-  environment:
-    - LOGSPOUT=ignore
-  links:
-    - elasticsearch
-  ports:
-    - '5601:5601'
+  logspout:
+    image: gliderlabs/logspout:v3
+    command: 'syslog://logstash:5000'
+    links:
+      - logstash
+    volumes:
+      - '/var/run/docker.sock:/tmp/docker.sock'
 
-elasticsearch:
-  image: elasticsearch
-  environment:
-    - LOGSPOUT=ignore
+  logstash:
+    image: ludekvesely/logstash-json
+    environment:
+      - LOGSPOUT=ignore
+      - DROP_NON_JSON=false
+      - STDOUT=true
+    links:
+      - elasticsearch
+
+  kibana:
+    image: kibana
+    environment:
+      - LOGSPOUT=ignore
+    links:
+      - elasticsearch
+    ports:
+      - '5601:5601'
+
+  elasticsearch:
+    image: elasticsearch
+    environment:
+      - LOGSPOUT=ignore
 
